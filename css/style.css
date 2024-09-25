@@ -1,4 +1,4 @@
-body, h1, h2, ul, li, p, dd, dt, dl {
+body, h1, h2, ul, li, p, dl, dt, dd {
   margin: 0px;
   padding: 0px;
 }
@@ -114,7 +114,7 @@ ul {
   grid-column: 2 / 4;
 }
 
-.faq-lista dd {
+.faq-lista dt {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 1rem;
   font-weight: 700;
@@ -122,7 +122,7 @@ ul {
   margin-bottom: .5rem;
 }
 
-.faq-lista dd::before {
+.faq-lista dt::before {
   content: "";
   display:inline-block;
   width: 20px;
@@ -131,7 +131,7 @@ ul {
   margin-right: 10px;
 }
 
-.faq-lista dt {
+.faq-lista dd {
   font-family: Helvetica, Arial;
   font-size: 1rem;
   line-height: 1.4;
@@ -139,7 +139,7 @@ ul {
   margin-left: 30px;
 }
 
-.faq-lista dt:last-child {
+.faq-lista dd:last-child {
   margin-bottom: 0;
 }
 
@@ -234,5 +234,34 @@ ul {
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
+}
 
+.js .js-accordion dd {
+  display: none;
+}
+
+.js-accordion dt::after {
+  content: '⮧';
+  margin-left: 10px;
+}
+
+.js-accordion dt.ativo::after {
+  content: '⮥';
+  margin-left: 10px;
+}
+
+.js-accordion dd.ativo {
+  display: block;
+  animation: slideDown .5s forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 200px;
+  }
 }
