@@ -1,3 +1,4 @@
+//Navegação por tabs
 function initTabNav() { 
   // colocar o código dentro de uma função caso queira usar uma const com mesmo nome.
   const tabMenu = document.querySelectorAll('.js-tabmenu img');
@@ -22,7 +23,7 @@ function initTabNav() {
 }
 initTabNav(); // iniciar a função;
 
-
+// Accordion List
 function initAccordion() {
   const accordionList = document.querySelectorAll('.js-accordion dt');
   const activeClass = 'ativo';
@@ -42,3 +43,26 @@ function initAccordion() {
   }
 }
 initAccordion();
+
+//Scroll suave para links internos
+
+function initScrollSuave() {
+  const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]');
+
+  function scrollToSection(event) {
+    event.preventDefault();
+
+    const href = event.currentTarget.getAttribute('href');
+    const section = document.querySelector(href);
+
+    section.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  }
+
+  linksInternos.forEach((link) => {
+    link.addEventListener('click', scrollToSection);
+  });
+}
+initScrollSuave();
